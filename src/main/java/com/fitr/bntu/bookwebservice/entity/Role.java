@@ -13,7 +13,6 @@ import javax.persistence.Table;
 public class Role {
     @Id
     int id;
-
     @Column(name = "users_type")
     String role;
 }

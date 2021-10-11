@@ -11,7 +11,7 @@ import java.util.List;
 public interface OrderService {
     Order add(User user, Date date, String status, BigDecimal price); // может и пользователь и админ для добавления заказа
 
-    Order editStatus(Integer id, String status); // для админа для подтверждения заказа
+    Order updateStatus(Integer id, String status); // для админа для подтверждения заказа
 
     List<Order> findAll(int pageNumber, int numberOfElementsPerPage); // для админа, чтоб подтверждать или нет
 

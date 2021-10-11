@@ -13,8 +13,9 @@ import java.util.List;
 public class AuthorController {
     @Autowired
     private AuthorRepository authorRepository;
+
     @GetMapping("/author")
-    public List<Author> getAuthor(){
-        return authorRepository.findAll(PageRequest.of(0,10)).getContent();
+    public List<Author> getAuthor() {
+        return authorRepository.findAll(PageRequest.of(0, 10)).getContent();
     }
 }

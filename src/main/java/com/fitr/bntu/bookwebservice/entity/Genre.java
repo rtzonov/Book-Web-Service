@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class Genre {
     @Id
     int id;
-
     String type;
 
 }

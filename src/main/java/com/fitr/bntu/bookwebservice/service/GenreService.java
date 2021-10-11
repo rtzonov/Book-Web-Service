@@ -8,7 +8,7 @@ import java.util.List;
 public interface GenreService {
     Genre add(String type); //думал сделать как енам , пока не знаю
 
-    Genre edit(Integer id, String type);
+    Genre update(Integer id, String type);
 
     List<Genre> findAll(int pageNumber, int numberOfElementsPerPage);
 

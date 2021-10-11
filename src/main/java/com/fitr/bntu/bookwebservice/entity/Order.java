@@ -12,12 +12,9 @@ import java.util.Date;
 public class Order {
     @Id
     int id;
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     User user;
-
     Date date;
-
     BigDecimal price;
 }

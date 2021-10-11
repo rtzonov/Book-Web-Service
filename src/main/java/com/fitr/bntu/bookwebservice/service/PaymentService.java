@@ -10,7 +10,7 @@ public interface PaymentService {
     Payment add(Date date, Order order); // юзеру для оплаты
 
     @Deprecated
-    Payment edit(Integer id, Date date, Order order); // мб для админа тип подтвердить что оплатил
+    Payment update(Integer id, Date date, Order order); // мб для админа тип подтвердить что оплатил
 
     List<Payment> findAll(int pageNumber, int numberOfElementsPerPage); // для админа посмотреть все оплачены хотя не уверен что это нужно
 

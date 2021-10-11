@@ -10,7 +10,7 @@ public interface RoleService {// мб это просто енам
 
     Role add(String userType);// юзлез
 
-    Role edit(Integer id, String userType);// юзлез
+    Role update(Integer id, String userType);// юзлез
 
     List<Role> findAll(int pageNumber, int numberOfElementsPerPage);// админу по рофлу
 

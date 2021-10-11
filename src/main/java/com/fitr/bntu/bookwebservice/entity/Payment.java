@@ -11,10 +11,8 @@ import java.util.Date;
 public class Payment {
     @Id
     int id;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
     Order order;
-
     Date date;
 }

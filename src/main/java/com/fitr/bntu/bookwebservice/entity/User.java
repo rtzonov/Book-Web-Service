@@ -10,11 +10,8 @@ import javax.persistence.*;
 public class User {
     @Id
     int id;
-
     String login;
-
     String password;
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "roles_id")
     Role role;
