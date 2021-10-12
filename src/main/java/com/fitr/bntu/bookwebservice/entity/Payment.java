@@ -15,4 +15,10 @@ public class Payment {
     @JoinColumn(name = "order_id")
     Order order;
     Date date;
+
+    public Payment(int id, Order order, Date date) {
+        this.id = id;
+        this.order = order;
+        this.date = date;
+    }
 }

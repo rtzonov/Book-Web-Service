@@ -17,4 +17,14 @@ public class Order {
     User user;
     Date date;
     BigDecimal price;
+
+    public Order(int id, User user, Date date, BigDecimal price) {
+        this.id = id;
+        this.user = user;
+        this.date = date;
+        this.price = price;
+    }
+
+    public Order(Integer id, String status) {
+    }
 }

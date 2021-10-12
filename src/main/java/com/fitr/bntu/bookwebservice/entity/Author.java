@@ -18,4 +18,10 @@ public class Author {
     String name;
     @Column(name = "last_name")
     String lastName;
+
+    public Author(int id, String name, String lastName) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+    }
 }
