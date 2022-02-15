@@ -1,0 +1,263 @@
+.admin_button_panel {
+    background: limegreen;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px auto 0;
+    width: 40%;
+}
+
+#admin_but_add {
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+}
+
+#admin_but_add:hover {
+    opacity: .7;
+}
+
+.nothing_found {
+    color: red;
+    text-align: center;
+}
+
+.nothing_found a {
+    text-decoration: none;
+}
+
+.user_panel {
+    margin: 10px 0 3px 15px;
+    display: flex;
+}
+
+.user_panel input {
+    margin-left: 10px;
+    padding: 6px;
+    border: 1px solid #ff9d26;
+    font-size: 17px;
+}
+
+.user_panel button[type=submit] {
+    background: #ff9d26;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    margin: 5px;
+    width: 35px;
+    height: 100%;
+}
+
+.user_panel button[type=submit]:hover {
+    opacity: 0.7;
+    transition: .4s;
+}
+
+.preview__close {
+    color: red;
+}
+
+.preview__close:hover {
+    opacity: 0.7;
+}
+
+.main_block {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.car_block {
+    border: 1px solid rgba(71, 71 ,71, 0.6);
+    border-radius: 5px;
+
+    margin: 10px auto 10px auto;
+
+    height: auto;
+}
+
+.car_block__brand {
+    background: #26adff;
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.car_block__img img {
+    width: 440px;
+
+    min-height: 260px;
+    max-height: 260px;
+}
+
+.car_block__characteristics {
+    margin-left: 7px;
+    font-size: 22px;
+}
+
+
+.car_block__price {
+    color: #ff2634;
+    margin-right: 7px;
+    text-align: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.car_block__button {
+    margin: 10px 5px 10px 10px;
+    float: right;
+}
+
+.car_block__button a {
+    text-decoration: none;
+    color: black;
+    height: auto;
+    width: auto;
+    padding: 5px;
+    background: transparent;
+    border: 1px solid #26adff;
+    border-radius: 5px;
+    font-size: 25px;
+}
+
+.car_block__button a:hover {
+    background: #4bff26;
+}
+
+@media screen and (max-width: 915px) {
+    .user_panel {
+        display: block;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .user_panel button[type=submit] {
+        height: auto;
+    }
+}
+
+.modal {
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(77, 77, 77, .7);
+    transition: all .4s;
+}
+
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal__content {
+    background: #4CAF50;
+    padding: 1em 2em;
+
+    border-radius: 9px;
+    position: relative;
+    width: 500px;
+    max-width: 90%;
+
+    text-align: left;
+}
+
+.data_input {
+    margin: 10px 0 10px 0;
+}
+
+.data_input {
+    margin: 10px 0 10px 0;
+}
+
+.modal__content a {
+    color: rgba(71, 71, 71, 0.8);
+}
+
+.modal__content a:hover {
+    color: black;
+}
+
+.modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #585858;
+    text-decoration: none;
+}
+
+.modal__footer {
+    text-align: right;
+}
+
+.login {
+    text-align: center;
+    width: 500px;
+    height: auto;
+    padding: 10px;
+    background: rgba(44, 44, 44, 0.9);
+
+    position: fixed;
+    overflow: hidden;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    border: 0;
+    border-radius: 15px;
+
+    font-size: 16px;
+    line-height: 40px;
+    color: white;
+}
+
+.login input {
+    height: 30px;
+    color: black;
+    font-size: inherit;
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+.login select {
+    height: 30px;
+    color: black;
+    font-size: inherit;
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+.login p {
+    margin-bottom: -20px;
+}
+
+.login .button {
+    background: #ff9d26;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: inherit;
+}
+
+.login a{
+    text-decoration: none;
+    font-size: inherit;
+    color: #ff9d26;
+}
+
+.login a:hover {
+    opacity: .9;
+}

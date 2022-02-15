@@ -1,38 +1,74 @@
 package com.fitr.bntu.bookwebservice.service.impl;
 
-import com.fitr.bntu.bookwebservice.entity.Payment;
+import com.fitr.bntu.bookwebservice.DTO.UserDTO;
+import com.fitr.bntu.bookwebservice.entity.Role;
 import com.fitr.bntu.bookwebservice.entity.User;
 import com.fitr.bntu.bookwebservice.repository.UserRepository;
+import com.fitr.bntu.bookwebservice.service.ServiceException;
 import com.fitr.bntu.bookwebservice.service.UserService;
+import com.fitr.bntu.bookwebservice.validator.UserValidator;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Service
 public class UserServiceImpl implements UserService {
+
+    private static final Role ROLE = new Role(2,"User");
+
+    private final UserValidator userValidator;
 
     private final UserRepository repository;
 
+    private final ModelMapper mapper;
+
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    public UserServiceImpl(UserRepository repository) {
+    public UserServiceImpl(UserValidator userValidator, UserRepository repository, ModelMapper mapper, PasswordEncoder passwordEncoder) {
+        this.userValidator = userValidator;
         this.repository = repository;
+        this.mapper = mapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
-    public User signIn(String login, String password) {
-        User user = new User(login, password);
-        return repository.save(user);
+    public UserDTO signIn(String login, String password) {
+        User user = repository.findByLogin(login)
+                .orElseThrow(() -> new ServiceException("User with this login is not exist"));
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new ServiceException("Password is not correct");
+        }
+        return convertToDTO(user);
     }
 
     @Override
-    public User signUp(String login, String password) {
-        User user = new User(login, password);
-        return repository.save(user);
+    public UserDTO signUp(String login, String password) {
+        if (!userValidator.isUserValid(login,password)){
+            throw new ServiceException("Invalid data in fields login or password");
+        }
+        User user = new User(login, passwordEncoder.encode(password), ROLE);
+        return convertToDTO(repository.save(user));
     }
 
     @Override
-    public List<User> findAll(int pageNumber, int numberOfElementsPerPage) {
-        return (List<User>) repository.findAll(PageRequest.of(pageNumber, numberOfElementsPerPage));
+    public List<UserDTO> findAll(int pageNumber, int numberOfElementsPerPage) {
+        if (pageNumber < 1 || numberOfElementsPerPage < 1) {
+            throw new ServiceException("Invalid page number");
+        }
+        return repository.findAll(PageRequest.of(pageNumber - 1, numberOfElementsPerPage)).getContent()
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
-    // i don't write deprecated methods
+
+    public UserDTO convertToDTO(User user) {
+        return mapper.map(user, UserDTO.class);
+    }
 }

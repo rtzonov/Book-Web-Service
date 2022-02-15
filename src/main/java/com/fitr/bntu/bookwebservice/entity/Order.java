@@ -1,11 +1,16 @@
 package com.fitr.bntu.bookwebservice.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
 @Table(name = "order")
@@ -17,14 +22,10 @@ public class Order {
     User user;
     Date date;
     BigDecimal price;
+    String status;
 
-    public Order(int id, User user, Date date, BigDecimal price) {
-        this.id = id;
-        this.user = user;
-        this.date = date;
-        this.price = price;
-    }
 
     public Order(Integer id, String status) {
+
     }
 }
