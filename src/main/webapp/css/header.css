@@ -1,0 +1,66 @@
+* {
+    font-family: Tahoma, sans-serif;
+}
+
+.header {
+    overflow: hidden;
+    background: rgba(44, 44, 44, 0.6);
+    margin: 0px -8px 0 -8px;
+}
+
+/* Style the header links */
+.header a {
+    background: rgba(44, 44, 44, 0.0);
+    float: left;
+    color: #26adff;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 0;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.header__logo {
+    background: #4bff26;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+    background: rgba(44, 44, 44, 0.0);
+    color: #4bff26;
+}
+
+.header a.header__logo:hover {
+    background: rgba(44, 44, 44, 0.0);
+    color: #4bff26;
+}
+
+/* Float the link section to the right */
+.header__links {
+    float: right;
+}
+
+#globe {
+    margin-top: 1px;
+}
+
+#globe:hover {
+    background: rgba(255, 157, 38, 0.8);
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 700px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .header__links {
+        display: block;
+        float: none;
+    }
+}
