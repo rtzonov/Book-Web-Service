@@ -13,6 +13,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
+
 <c:if test="${sessionScope.user.role.role eq 'Admin'}">
     <div class="admin_button_panel">
         <a href="#demo-modal" style="font-size: 20px; text-decoration: none; ">Добавить книгу</a>
@@ -91,7 +92,7 @@
                                                 </label>
                                                 <label>
                                                     Цена
-                                                    <input name="cost" value="${book.cost}" min="0" step="0.1" pattern="[\d]{1,6}(\.\d{1,2})?"  title="пример: 123.22" required>
+                                                    <input name="cost" value="${book.cost}" min="0" step="0.01"  pattern="[\d]{1,6}(\.\d{1,2})?"  title="пример: 123.22" required>
                                                 </label>
                                                 <label>
                                                     Обложка
@@ -143,7 +144,7 @@
                 </label>
                 <label>
                     Цена
-                    <input type="number" min="0" step="0.1" name="cost" pattern="[\d]{1,6}(\.\d{1,2})?"  title="пример: 123.22" required>
+                    <input type="number" min="0" step="0.01" name="cost" pattern="[\d]{1,6}(\.\d{1,2})?"  title="пример: 123.22" required>
                 </label>
 
                 <label>

@@ -13,6 +13,8 @@ public class BookData {
     private BigDecimal cost;
     private String genre;
     private String author;
+    private String authorName;
+    private String authorLastname;
     private MultipartFile imageFile;
 
 }

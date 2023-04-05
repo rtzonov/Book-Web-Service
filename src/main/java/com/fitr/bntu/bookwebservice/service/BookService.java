@@ -22,6 +22,6 @@ public interface BookService {
     List<BookDTO> findAll(int pageNumber, int numberOfElementsPerPage); // админу и юзеру чтоб глянуть фул список имеющихся книг
 
     List<BookDTO> findAllByParameters(String name, Author author, Genre genre, int pageNumber, int numberOfElementsPerPage); // поиск для админа и юзера из фул списка
-
+    List<BookDTO> findAllByParameters2(String name, int pageNumber, int numberOfElementsPerPage);
     BookDTO findById(Integer id); // для страницы книги
 }

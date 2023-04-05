@@ -6,5 +6,6 @@ public interface AuthorValidator {
     boolean isAuthorValid(Author author);
     boolean isNameValid(String name);
     boolean isLastNameValid(String lastName);
+    boolean isAuthorForCreateValid(String name, String lastname);
 
 }

@@ -1,0 +1,61 @@
+.table img{
+    max-width: 100px;
+
+}
+.price-cart {
+    text-align: center;
+    transform: translate(0, 100%);
+}
+.container-fl{
+    max-width: 1400px;
+    margin: 0 auto;
+
+}
+.garbage-col {
+    color: black;
+    text-align: center;
+    transform: translate(0, 100%);
+}
+.garbage-col a{
+    color: black;
+    text-align: center;
+    transform: translate(0, 100%);
+}
+.garbage-col a:hover{
+    color: #ab0a0a;
+    text-align: center;
+    transform: translate(0, 100%);
+}
+.price-total{
+    text-align: right;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.empty-cart{
+    text-align: center;
+    font-weight: bold;
+}
+.payment button{
+    text-align: right;
+    background: cyan;
+
+}
+.payment button:hover{
+    background: #00b2ff;
+}
+.head-text p{
+    font-weight: bold;
+}
+.modal-header{
+    background-color: cyan;
+}
+.modal-footer button{
+    background-color: cyan;
+    color: black;
+    border-color: cyan;
+}
+.modal-footer button:hover{
+    background: #00b2ff;
+    color: black;
+    border-color: #00b2ff;
+}

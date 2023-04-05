@@ -267,7 +267,7 @@
 </form>
 <div id="demo-modal" class="modal">
     <div class="modal__content">
-        <form action="/book/menu" method="get" style="text-align: center">
+        <form action="/menu" method="get" style="text-align: center">
             <label>
                 <span style="font-size: 32px">Спасибо за покупку!</span><br>
                 <button type="submit"

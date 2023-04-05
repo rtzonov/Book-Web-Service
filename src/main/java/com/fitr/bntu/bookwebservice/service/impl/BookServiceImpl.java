@@ -79,6 +79,18 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<BookDTO> findAllByParameters2(String name, int pageNumber, int number){
+        int firstElement = pageNumber * number - number;
+        int lastElement = pageNumber * number;
+        List<Book> result;
+        result =repository.findAllByParameters2(name, firstElement, lastElement);
+        return result
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public List<BookDTO> findAllByParameters(String name, Author author, Genre genre, int pageNumber, int numberOfElementsPerPage) {
         if (pageNumber < 1 || numberOfElementsPerPage < 1 ) {
             throw new ServiceException("Invalid page number");

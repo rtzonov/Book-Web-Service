@@ -27,9 +27,9 @@
     </a>
 
     <div class="header__links">
-        <c:if test="${requestScope.books ne null}">
+
             <a href="#search"><i class="fa fa-search"></i></a>
-        </c:if>
+
         <a href="/book/menu">${menu}</a>
         <a href="/cart">${cart}</a>
         <c:if test="${sessionScope.user != null}">
@@ -50,7 +50,7 @@
     <div class="modal__content">
         <div class="login">
             <form action="/book/find_book" method="post">
-                <input type="hidden" name="command" value="login">
+                <%--<input type="hidden" name="command" value="login">--%>
                 <label>
                     Название книги
                     <input type="text" name="name" >

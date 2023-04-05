@@ -35,6 +35,7 @@
                 <span style="font-size: 28px; color: black; margin-bottom: 25px; text-transform: uppercase">${b.name}</span>
                 <span style="font-size: 16px; margin-bottom: 15px;"><a href="https://www.google.by/search?q=${b.author.name}%20${b.author.lastName}">${b.author}</a></span>
                 <span style="font-size: 16px; margin-bottom: 15px; text-transform: capitalize""><a href="https://www.google.by/search?q=${b.genre}">${b.genre}</a></span>
+                <%--Кнопка убрать--%>
                 <span style="font-size: 22px; margin-top: 10px">Убрать:<a href="/book/remove_from_cart/${b.id}" style="font-size: 24px; color: red; text-decoration: none">&times;</a></span>
             </div>
 
@@ -43,6 +44,8 @@
     </c:forEach>
 
     <br>
+
+    <%--Это расчет цены в корзине--%>
     <div style="text-align: center">
         <c:choose>
             <c:when test="${sessionScope.cart.size() > 1}">
@@ -70,6 +73,7 @@
 
                 <div class="payment" style="text-align: center">
                     <form method="get" action="/payment">
+                        <%--Кнопка оплатить--%>
                         <button name="payment" value="${sessionScope.cart[0].getCost()}" style="padding: 10px; background-color: lawngreen; border-style: none">Оплатить</button>
                     </form>
                 </div>

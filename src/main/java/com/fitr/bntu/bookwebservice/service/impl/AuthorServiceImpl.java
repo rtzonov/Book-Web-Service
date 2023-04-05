@@ -1,7 +1,9 @@
 package com.fitr.bntu.bookwebservice.service.impl;
 
 import com.fitr.bntu.bookwebservice.DTO.AuthorDTO;
+import com.fitr.bntu.bookwebservice.DTO.BookDTO;
 import com.fitr.bntu.bookwebservice.entity.Author;
+import com.fitr.bntu.bookwebservice.entity.Book;
 import com.fitr.bntu.bookwebservice.repository.AuthorRepository;
 import com.fitr.bntu.bookwebservice.service.AuthorService;
 import com.fitr.bntu.bookwebservice.service.ServiceException;
@@ -35,13 +37,22 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorDTO add(String name, String lastName) {
-        Author author = new Author(0, name, lastName);
-        if(!authorValidator.isAuthorValid(author)){
+    public AuthorDTO add(AuthorDTO authorDTO) {
+        if(!authorValidator.isAuthorForCreateValid(authorDTO.getName(),authorDTO.getLastName())){
             throw new ServiceException("Invalid Author");
         }
-        return convertToDTO(repository.save(author));
+        Author author = convertFromDTO(authorDTO);
+        AuthorDTO result;
+        if(isExists(authorDTO)){
+            result = convertToDTO(repository.findByNameAndLastName(author.getName(),author.getLastName()));
+        }
+        else {
+            result = convertToDTO(repository.save(author));
+        }
+
+        return result;
     }
+
 
     @Override
     public AuthorDTO update(Integer id, String name, String lastName) {
@@ -75,6 +86,10 @@ public class AuthorServiceImpl implements AuthorService {
 
     public AuthorDTO convertToDTO(Author author) {
         return mapper.map(author, AuthorDTO.class);
+    }
+
+    public Author convertFromDTO(AuthorDTO authorDTO) {
+        return mapper.map(authorDTO, Author.class);
     }
 
 }

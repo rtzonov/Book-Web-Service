@@ -41,9 +41,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO signIn(String login, String password) {
         User user = repository.findByLogin(login)
-                .orElseThrow(() -> new ServiceException("User with this login is not exist"));
+                .orElseThrow(() -> new ServiceException("User with this login or password is not correct"));
         if (!passwordEncoder.matches(password, user.getPassword())) {
-            throw new ServiceException("Password is not correct");
+            throw new ServiceException("User with this login or password is not correct");
         }
         return convertToDTO(user);
     }

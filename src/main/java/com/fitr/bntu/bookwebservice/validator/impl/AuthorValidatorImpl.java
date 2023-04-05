@@ -23,4 +23,8 @@ private static final Pattern PATTERN_FOR_NAME = Pattern.compile("[a-zA-Zа-яё�
     public boolean isLastNameValid(String lastName){
         return lastName != null && PATTERN_FOR_NAME.matcher(lastName).matches();
     }
+    @Override
+    public boolean isAuthorForCreateValid(String name, String lastName){
+        return isNameValid(name) && isLastNameValid(lastName);
+    }
 }

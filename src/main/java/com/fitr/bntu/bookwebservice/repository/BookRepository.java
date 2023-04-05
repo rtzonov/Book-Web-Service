@@ -15,9 +15,11 @@ import java.util.List;
 public interface BookRepository extends PagingAndSortingRepository<Book, Integer> {
     @Query (value = "SELECT * FROM book b WHERE author_id IN (SELECT author.id FROM author WHERE author.name=:authorName AND author.last_name=:authorLastName) AND b.name = :name AND b.genre_id IN (SELECT id FROM genre WHERE type =:genre) limit :pageNumber, :numberOfElementsPerPage", nativeQuery = true)
     List<Book> findAllByParameters(String name, String authorName, String authorLastName, String genre, int pageNumber, int numberOfElementsPerPage);
-
+    @Query (value = "SELECT * FROM book b WHERE (author_id IN (SELECT author.id FROM author WHERE author.name like  CONCAT('%',:name,'%') OR author.last_name like CONCAT('%',:name,'%'))) OR b.name like  CONCAT('%',:name,'%') limit :pageNumber, :numberOfElementsPerPage", nativeQuery = true)
+    List<Book> findAllByParameters2(String name, int pageNumber, int numberOfElementsPerPage);
     List<Book> findAllByNameContainingAndGenre(String name, Genre genre);
     List<Book> findAllByNameContainingAndAuthor(String name, Author author);
+    //List<Book> findAllByAuthor(Author author);
     List<Book> findAllByNameContainingAndAuthorAndGenre(String name, Author author, Genre genre);
 
     List<Book> findAllByNameContaining(String name);

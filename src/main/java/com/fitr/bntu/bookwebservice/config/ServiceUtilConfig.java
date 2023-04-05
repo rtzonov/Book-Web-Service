@@ -45,7 +45,8 @@ public class ServiceUtilConfig implements WebMvcConfigurer {
         registry.addViewController("/registration")
                 .setViewName("registration");
         registry.addViewController("/cart")
-                .setViewName("cart");
+                .setViewName("cart2");
+        registry.addViewController("/menu").setViewName("main3");
     }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

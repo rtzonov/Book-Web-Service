@@ -1,8 +1,10 @@
 package com.fitr.bntu.bookwebservice.controller;
 
+import com.fitr.bntu.bookwebservice.DTO.AuthorDTO;
 import com.fitr.bntu.bookwebservice.DTO.GenreDTO;
 import com.fitr.bntu.bookwebservice.data.BookDataForSearch;
 import com.fitr.bntu.bookwebservice.repository.AuthorRepository;
+import com.fitr.bntu.bookwebservice.repository.BookRepository;
 import org.modelmapper.ModelMapper;
 import com.fitr.bntu.bookwebservice.DTO.BookDTO;
 import com.fitr.bntu.bookwebservice.DTO.UserDTO;
@@ -19,7 +21,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/Book")
