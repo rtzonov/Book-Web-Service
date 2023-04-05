@@ -67,6 +67,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public BookDTO update(BookDTO bookDTO) {
+        return convertToDTO(repository.save(convertFromDTO(bookDTO)));
+    }
+
+    @Override
     public BookDTO update(Integer id, String name, AuthorDTO author, BigDecimal cost, GenreDTO genre, String imagePath) {
 
         Author author1 = mapper.map(author, Author.class);

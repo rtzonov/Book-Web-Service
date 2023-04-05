@@ -22,12 +22,14 @@ public class Book {
     @Column(name = "image_path")
     String imagePath;
     BigDecimal cost;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "genre_id")
     Genre genre;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "author_id")
     Author author;
+    @Column(name = "is_deleted")
+    Boolean isDeleted = false;
 
     public Book(int id, String name, String imagePath, BigDecimal cost, Genre genre, String authorName, String authorLastName) {
         this.id = id;
